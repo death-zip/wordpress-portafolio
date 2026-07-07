@@ -1,130 +1,44 @@
-# WordPress Portfolio - Custom Theme
+# WordPress Portfolio Theme
 
-This is a custom WordPress theme I developed from scratch for my professional portfolio. It showcases my skills in PHP development, WordPress theming, Gutenberg blocks with React, and performance optimization.
+A custom WordPress theme I built from scratch in plain PHP, without a page builder or a starter framework. I made it to actually understand how a WordPress theme works under the hood, not just how to install one.
 
----
+**Live demo:** http://juanantonioportafolio.freepage.cc
 
-## 🔗 Live Demo
+## What it does
 
-**Visit my portfolio:** [juanantonioportafolio.freepage.cc](http://juanantonioportafolio.freepage.cc)
+The theme registers a `proyecto` Custom Post Type so projects can be managed from the WordPress admin like any other content type, with their own archive and templates (`archive-proyecto.php`, `page-proyectos.php`). It also ships a small custom Gutenberg block (`block.js`), registered through the WordPress Block API so it shows up as a native block inside the editor instead of a shortcode. Navigation menus are wired up through `register_nav_menus`, so the primary menu is fully configurable from Appearance > Menus rather than hardcoded in the template.
 
----
+The template structure follows the standard WordPress split: `header.php`, `footer.php`, `index.php` for the main loop, plus `functions.php` for theme setup, the custom post type, and the block registration.
 
-## 📋 Features
+## Stack
 
-- **100% Custom Theme** – Built from scratch with PHP, HTML5, CSS3, and JavaScript
-- **Custom Post Type** – "Projects" for showcasing portfolio work
-- **Gutenberg Block** – Custom "Welcome Message" block built with React
-- **Navigation Menus** – Fully configurable with WordPress menu system
-- **Post Thumbnails** – Featured image support for projects
-- **Responsive Design** – Works on all screen sizes
-- **Performance Optimized** – Clean code, minimal dependencies, fast loading
-- **SEO Friendly** – Semantic HTML and proper WordPress hooks
+| Layer | Technology |
+|---|---|
+| Backend | PHP, WordPress theme APIs (CPTs, nav menus, Block API) |
+| Frontend | HTML, CSS, vanilla JavaScript for the Gutenberg block |
+| Hosting (demo) | Shared hosting running WordPress |
 
----
+## Why it's simple on purpose
 
-## 🛠️ Technologies Used
+This isn't a plugin-heavy site or a page builder theme. It's a small, readable codebase where every file has one clear job, which was the point: understanding what WordPress actually expects from a theme (`functions.php` hooks, template hierarchy, the Block API) before reaching for tools that hide that layer.
 
-| Category | Technologies |
-|----------|--------------|
-| **Backend** | PHP 8.2+, WordPress 7.0+ |
-| **Frontend** | HTML5, CSS3, JavaScript (React for Gutenberg) |
-| **Server** | Nginx, Apache, MySQL, Redis |
-| **DevOps** | Docker, GitHub Actions, Bash, Python |
-| **Cloud** | Cloudflare, AWS, DigitalOcean |
+## What I'd add next
 
----
+- A `single-proyecto.php` template with more structured project fields (client, stack, links) instead of relying only on the post editor
+- Basic sanitization and escaping review across the custom templates
+- A short screencast of the Gutenberg block in the editor, since a static screenshot doesn't show what it actually does
 
-## 📁 Project Structure
+## Running it locally
 
-mi-portafolio-theme/
-├── style.css # Theme styles and WordPress header
-├── index.php # Main template
-├── header.php # Site header
-├── footer.php # Site footer
-├── functions.php # Theme setup, CPTs, Gutenberg block registration
-├── block.js # Custom Gutenberg block (React)
-├── archive-proyecto.php # Archive template for projects
-├── page-proyectos.php # Custom page template for projects listing
-└── single-proyecto.php # Single project template
-text
+```bash
+# from your wp-content/themes/ folder
+git clone https://github.com/death-zip/wordpress-portafolio.git
+```
 
+Then activate it from Appearance > Themes, create a page using the projects template, and add a menu under Appearance > Menus.
 
----
+## Author
 
-## 🚀 Installation
-
-1. **Clone this repository** into your WordPress `wp-content/themes/` folder:
-   ```bash
-   git clone https://github.com/death-zip/wordpress-portafolio.git
-
-    Activate the theme from the WordPress admin panel:
-
-        Go to Appearance > Themes
-
-        Find "Mi Portafolio Theme" and click Activate
-
-    (Optional) Install the Gutenberg plugin for full block editor support.
-
-    Create the required pages:
-
-        Home
-
-        Projects (use the "Lista de Proyectos" template)
-
-        About Me
-
-    Configure the menu:
-
-        Go to Appearance > Menus
-
-        Create a menu called "Menú Principal"
-
-        Add your pages and save
-
-📦 Projects Included
-
-This portfolio includes the following projects:
-Project	Description	Technologies
-WordPress Portfolio + Docker	Custom theme with Docker, Nginx, PHP 8.2, MySQL, Redis caching	WordPress, PHP, React, Docker, Nginx, Cloudflare
-Backup Automation with Bash	Automated WordPress backups with Bash scripts and AWS S3	Bash, AWS CLI, MySQL, cron, GPG
-Core Web Vitals Improvement	Reduced LCP from 4.2s to 1.8s, CLS to 0.02	WordPress, Nginx, Redis, WebP, PageSpeed Insights
-High-Performance Landing Page	Conversion rate: 12.5%, loading time: 1.2s	WordPress, JavaScript, GTM, CSS3, Mailchimp API
-📊 Performance Results
-
-    Lighthouse Score: 95+ in performance
-
-    TTFB: 120ms
-
-    LCP: 1.8s (reduced from 4.2s)
-
-    CLS: 0.02 (reduced from 0.15)
-
-    Mobile Score: 92 (Lighthouse)
-
-📄 Requirements
-
-    WordPress 7.0 or higher
-
-    PHP 8.2 or higher
-
-    Gutenberg plugin (optional, for block editing)
-
-👤 Author
-
-Juan Antonio Rivera Rodríguez
-
-    📍 Villahermosa, Tabasco, México
-
-    📧 riverarodriguezjuanantonio@gmail.com
-
-    🔗 GitHub
-
-    🔗 LinkedIn
-
-📝 License
-
-This project is open source and available for learning purposes.
-🙏 Acknowledgments
-
-Built as part of my professional portfolio to demonstrate WordPress development, theming, and infrastructure skills.
+Juan Antonio Rivera Rodriguez
+Villahermosa, Tabasco, Mexico
+riverarodriguezjuanantonio@gmail.com
